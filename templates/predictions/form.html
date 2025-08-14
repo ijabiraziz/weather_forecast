@@ -1,0 +1,10 @@
+<form method="post">
+  {% csrf_token %}
+  <input type="text" name="location" placeholder="Enter city" required>
+  <input type="date" name="date" required>
+  <button type="submit">Predict</button>
+</form>
+
+{% if prediction %}
+<h2>Prediction for {{ location }} on {{ date }}: {{ prediction }}</h2>
+{% endif %}
