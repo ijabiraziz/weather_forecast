@@ -9,6 +9,9 @@ pip install -r requirements.txt
 
 add config.json with your PostgreSQL credentials at the root directory:
 make sure to first open pgAdmin and create database with the used db name in .json file
+
+
+
 {
     "DB_NAME": "db-namee",
     "DB_USER": "ps-user-name",
