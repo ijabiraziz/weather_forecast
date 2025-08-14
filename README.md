@@ -1,24 +1,29 @@
-Create Virtual Environment ( and activate it )
+Create Virtual Environment & Activate
 python -m venv venv
-venv\Scripts\activate
-
+venv\Scripts\activate # Windows
+or
+source venv/bin/activate # macOS/Linux
 
 Install Dependencies
 pip install -r requirements.txt
 
+Database Configuration
 
-add config.json with your PostgreSQL credentials at the root directory:
-make sure to first open pgAdmin and create database with the used db name in .json file
+Open pgAdmin (or your PostgreSQL client).
 
+Create a new database with the name you will use in config.json.
 
+At the root directory of the project, add a file named config.json with:
 
 {
-    "DB_NAME": "db-namee",
-    "DB_USER": "ps-user-name",
-    "DB_PASSWORD": "yourpassword",
-    "DB_HOST": "localhost",
-    "DB_PORT": "5432"
+"DB_NAME": "db-namee",
+"DB_USER": "ps-user-name",
+"DB_PASSWORD": "yourpassword",
+"DB_HOST": "localhost",
+"DB_PORT": "5432"
 }
+
+
 
 Run Migrations
 python manage.py makemigrations
@@ -27,10 +32,15 @@ python manage.py migrate
 Start Server
 python manage.py runserver
 
+Frontend Endpoints (Django Templates - Jinja)
+Login: http://127.0.0.1:8000/accounts/login
+Signup: http://127.0.0.1:8000/accounts/signup
+Predictions Form: http://127.0.0.1:8000/predictions/
 
+Notes
 
+Uses Django's default templating engine (Jinja-like syntax).
 
-frontend endpoint (i have used django default templating language (jinja)
-http://127.0.0.1:8000/accounts/login
-http://127.0.0.1:8000/accounts/signup
-http://127.0.0.1:8000/predictions/
+Make sure PostgreSQL is running before starting the server.
+
+All prediction requests are stored in the database per user.
